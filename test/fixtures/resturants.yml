@@ -2,8 +2,12 @@
 
 one:
   name: MyString
-  description: MyString
+  discription: MyString
+  location: MyString
+  image: MyString
 
 two:
   name: MyString
-  description: MyString
+  discription: MyString
+  location: MyString
+  image: MyString

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :resturants
+
   resources :menu_items
 
   root :to => redirect('/resturants')
-  resources :resturants
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

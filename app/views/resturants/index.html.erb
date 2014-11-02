@@ -1,10 +1,16 @@
 <div class="container">
+   <%= button_to "Menu Items", "/menu_items",:style =>"float:right", 
+        :class => "btn btn-info", :method => :get %>
   <h1>Listing Resturants</h1>
+ 
   <table class="table table-striped">
     <thead>
       <tr class="info">
         <th>Name</th>
         <th>Description</th>
+        <th>Location</th>
+        <th></th>
+
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -12,7 +18,8 @@
       <% @resturants.each do |resturant| %>
         <tr>
           <td><%= resturant.name %></td>
-          <td><%= resturant.description %></td>
+          <td><%= resturant.discription %></td>
+          <td><%= resturant.location %></td>
           <td><%= link_to 'Show', resturant %></td>
           <td><%= link_to 'Edit', edit_resturant_path(resturant) %></td>
           <td><%= link_to 'Delete', resturant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -20,8 +27,9 @@
       <% end %>
     </tbody>
   </table>
-  <br>
+  </br>
   <%= button_to "New Resturant", new_resturant_path,:style =>"margin-left:5px", 
         :class => "btn btn-success", :method => :get %>
+ 
 </div>
 
