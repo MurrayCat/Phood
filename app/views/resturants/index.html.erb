@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Listing Resturants</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr class="info">
+        <th>Name</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resturants.each do |resturant| %>
+        <tr>
+          <td><%= resturant.name %></td>
+          <td><%= resturant.description %></td>
+          <td><%= link_to 'Show', resturant %></td>
+          <td><%= link_to 'Edit', edit_resturant_path(resturant) %></td>
+          <td><%= link_to 'Delete', resturant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= button_to "New Resturant", new_resturant_path,:style =>"margin-left:5px", 
+        :class => "btn btn-success", :method => :get %>
+</div>
+

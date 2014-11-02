@@ -1,0 +1,37 @@
+<%= form_for @menu_item , :html => {:multipart => true} do |f| %>
+  <% if @menu_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
+
+      <ul>
+      <% @menu_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name ,:class => "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :desription %><br>
+    <%= f.text_field :desription ,:class => "form-control"%>
+  </div>
+  <div class="field">
+     <%= f.label :resturant_id %><br>
+     <%= f.collection_select :resturant_id, Resturant.order(:name),:id,:name %>
+
+  </div>
+  <div class="field">
+    <%= f.file_field :picture %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit 'Submit', :class => 'btn btn-success' %>
+  </div>
+<% end %>

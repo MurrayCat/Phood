@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Resturant</h1>
+
+<h3 id="notice"><%= notice %></h3>
+<table class="table table-hover">
+<tr class="info">
+  <td>Name:</td>
+  <td><%= @resturant.name %></td>
+</tr>
+
+<tr class="active">
+  <td>Description:</td>
+  <td><%= @resturant.description %></td>
+</tr>
+</table>
+<%= link_to 'Edit', edit_resturant_path(@resturant),:style =>"margin-left:5px" %> |
+<%= link_to 'Back', resturants_path %>
+</div>
