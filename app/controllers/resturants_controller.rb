@@ -1,6 +1,7 @@
 class ResturantsController < ApplicationController
   before_action :set_resturant, only: [:show, :edit, :update, :destroy]
-
+ #before_filter :authenticate_user!, :except =>[:show,:index]
+  before_filter :authenticate_user!
   # GET /resturants
   # GET /resturants.json
   def index
