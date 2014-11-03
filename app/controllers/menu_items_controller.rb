@@ -1,6 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except =>[:show,:index]
 
   # GET /menu_items
   # GET /menu_items.json
