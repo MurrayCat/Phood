@@ -1,12 +1,4 @@
 <div class="container">
-	<div id="user_nav" style="float:right ">
-            <% if user_signed_in? %>
-              Signed in as <%= current_user.email %>. Not you?
-              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-            <% end %>
-  </div>
 <h1>Resturant</h1>
 
 <h3 id="notice"><%= notice %></h3>
@@ -30,6 +22,54 @@
 </tr>
 
 </table>
+
+
+<% @menu_items.each do |menu_item| %>
+     <% if menu_item.resturant_id ==@resturant.id%>
+ <h1>Menu</h1>   
+
+
+<h3 id="notice"><%= notice %></h3>
+<table class="table table-hover">
+
+<tr class="info">
+  <th >Name:</th>
+  <td><%= menu_item.name %></td>
+</tr>
+
+<tr class="active">
+  <th>Price:</th>
+  <td><%= menu_item.price %></td>
+</tr>
+
+<tr class="info">
+  <th>Desription:</th>
+  <td><%= menu_item.desription %></td>
+</p>
+
+<tr class="active">
+  <th>Resturant:</th>
+  <td><%= menu_item.resturant.name %></td>
+</tr>
+<tr class="info">
+  <th>Image:</th>
+
+ <td> <%= image_tag(menu_item.picture_url, :height =>100) if menu_item.picture.present?%></td>
+</tr>
+</table>
+<%end%>
+<%end%>
+
+
+
 <%= link_to 'Edit', edit_resturant_path(@resturant),:style =>"margin-left:5px" %> |
 <%= link_to 'Back', resturants_path %>
+ <div id="user_nav" style="float:right ">
+            <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>. 
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+            <% end %>
+  </div>
 </div>

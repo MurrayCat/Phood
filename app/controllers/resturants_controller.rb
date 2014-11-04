@@ -11,6 +11,8 @@ class ResturantsController < ApplicationController
   # GET /resturants/1
   # GET /resturants/1.json
   def show
+        @menu_items = MenuItem.all
+
   end
 
   # GET /resturants/new
@@ -55,7 +57,15 @@ class ResturantsController < ApplicationController
   # DELETE /resturants/1
   # DELETE /resturants/1.json
   def destroy
+    @menu_items = MenuItem.all
+    @menu_items.each do |menu_item|
+      if menu_item.resturant_id ==@resturant.id
+    menu_item.destroy
+      end
+    end
+
     @resturant.destroy
+
     respond_to do |format|
       format.html { redirect_to resturants_url, notice: 'Resturant was successfully destroyed.' }
       format.json { head :no_content }

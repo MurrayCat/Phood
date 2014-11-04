@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   resources :menu_items
 
-  root :to => redirect('/users/sign_in')
+  root :to => redirect('/resturants')
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,16 +1,7 @@
-<div class="container">
-  <div id="user_nav" style="float:right ">
-            <% if user_signed_in? %>
-              Signed in as <%= current_user.email %>. Not you?
-              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-            <% else %>
-              <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-            <% end %>
-  </div>
-  <br/>
+<div class="container" style="padding:5px">
    <%= button_to "Menu Items", "/menu_items",:style =>"float:right", 
         :class => "btn btn-info", :method => :get %>
-  <h1>Listing Resturants</h1>
+  <h1>Resturants</h1>
  
   <table class="table table-striped">
     <thead>
@@ -19,7 +10,6 @@
         <th>Description</th>
         <th>Location</th>
         <th></th>
-
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -39,6 +29,13 @@
   </br>
   <%= button_to "New Resturant", new_resturant_path,:style =>"margin-left:5px", 
         :class => "btn btn-success", :method => :get %>
- 
+ <div id="user_nav" style="float:right ">
+            <% if user_signed_in? %>
+              Signed in as <%= current_user.email %>. 
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+            <% end %>
+  </div>
 </div>
 
